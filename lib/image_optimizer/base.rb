@@ -4,10 +4,7 @@ class ImageOptimizer
   class Base
     def binary_path
       @binary_path ||= begin
-        try_system_binary or try_vendored_binaries or raise """
-          Can't find an installed version of #{@name}, and none of the vendored binaries seem to work.
-          Please install #{@name}, or open an issue on the project page at https://github.com/botandrose/sprockets-image_compressor
-        """
+        try_system_binary or try_vendored_binaries or ""
       end
     end
 
