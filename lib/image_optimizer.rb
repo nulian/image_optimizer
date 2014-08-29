@@ -2,7 +2,7 @@ require 'image_optimizer/version'
 require 'image_optimizer/jpeg_optimizer'
 require 'image_optimizer/png_optimizer'
 
-class ImageOptimizer
+module ImageOptimizer
   attr_reader :path, :options
 
   def initialize(path, options = {})

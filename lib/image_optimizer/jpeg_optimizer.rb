@@ -1,4 +1,4 @@
-class ImageOptimizer
+module ImageOptimizer
   class JPEGOptimizer < Base
     attr_reader :path, :options
 

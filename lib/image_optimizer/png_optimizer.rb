@@ -1,4 +1,4 @@
-class ImageOptimizer
+module ImageOptimizer
   class PNGOptimizer < Base
     attr_reader :path, :options
 

@@ -1,7 +1,7 @@
-class ImageOptimizer
+module ImageOptimizer
   GEM_ROOT = File.expand_path File.join(File.dirname(__FILE__), "../../../")
 
-  class ImageOptimizer::Base
+  class Base
     def binary_path
       @binary_path ||= begin
         try_system_binary or try_vendored_binaries or raise """
