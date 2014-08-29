@@ -3,7 +3,6 @@ class ImageOptimizer
 
   class Base
     def binary_path
-      binding.pry
       @binary_path ||= begin
         try_system_binary or try_vendored_binaries or raise """
           Can't find an installed version of #{@name}, and none of the vendored binaries seem to work.
