@@ -1,10 +1,11 @@
 class ImageOptimizer
-  class JPEGOptimizer
+  class JPEGOptimizer < Base
     attr_reader :path, :options
 
     def initialize(path, options = {})
       @path = path
       @options = options
+      @name = 'jpegoptim'
     end
 
     def optimize
@@ -51,7 +52,7 @@ class ImageOptimizer
     end
 
     def jpeg_optimizer_bin
-      @jpeg_optimizer_bin ||= ENV['JPEGOPTIM_BIN'] || `which jpegoptim`.strip
+      @jpeg_optimizer_bin ||= binary_path
     end
 
   end

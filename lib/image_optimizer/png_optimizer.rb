@@ -1,10 +1,11 @@
 class ImageOptimizer
-  class PNGOptimizer
+  class PNGOptimizer < Base
     attr_reader :path, :options
 
     def initialize(path, options = {})
       @path = path
       @options = options
+      @name = 'optipng'
     end
 
     def optimize
@@ -46,7 +47,7 @@ class ImageOptimizer
     end
 
     def png_optimizer_bin
-      @png_optimzer_bin ||= ENV['OPTIPNG_BIN'] || `which optipng`.strip
+      @png_optimzer_bin ||= binary_path
     end
 
   end
