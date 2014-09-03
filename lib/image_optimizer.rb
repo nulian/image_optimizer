@@ -15,3 +15,11 @@ class ImageOptimizer
     PNGOptimizer.new(path, options).optimize
   end
 end
+
+module CarrierWave
+  module ImageOptimizer
+    def optimize(options = {})
+      ::ImageOptimizer.new(current_path, options).optimize
+    end
+  end
+end
