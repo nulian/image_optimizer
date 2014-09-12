@@ -7,7 +7,7 @@ class ImageOptimizer
     def initialize(path, options = {})
       @path = path
       @options = options
-      @name = 'optipng'
+      @name = 'pngcrush'
     end
 
     def optimize
@@ -23,7 +23,7 @@ class ImageOptimizer
   private
 
     def png_format?
-      ['png', 'gif'].include? extension(path)
+      ['png'].include? extension(path)
     end
 
     def extension(path)
@@ -35,13 +35,14 @@ class ImageOptimizer
     end
 
     def command_options
-      flags = %w[-o7]
+      flags = ['-rem alla', '-rem text', '-nofilecheck']
       flags << quiet if options[:quiet]
+      flags << path
       flags << path
     end
 
     def quiet
-      '-quiet'
+      '-q'
     end
 
     def png_optimizer_present?
