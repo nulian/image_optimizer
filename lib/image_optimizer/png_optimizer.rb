@@ -35,10 +35,10 @@ class ImageOptimizer
     end
 
     def command_options
-      flags = ['-rem alla', '-rem text', '-nofilecheck']
+      flags = ['-rem alla', '-rem text']
       flags << quiet if options[:quiet]
       flags << path
-      flags << path
+      flags << path + 'optim'
     end
 
     def quiet
