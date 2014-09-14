@@ -5,8 +5,8 @@ describe ImageOptimizer::PNGOptimizer do
     let(:png_optimizer) { ImageOptimizer::PNGOptimizer.new('/path/to/file.png') }
 
     it 'optimizes the png' do
-      png_optimizer.stub(:png_optimizer_bin => '/usr/local/bin/optipng')
-      png_optimizer.should_receive(:system).with('/usr/local/bin/optipng', '-o7', '/path/to/file.png')
+      png_optimizer.stub(:png_optimizer_bin => '/usr/local/bin/pngcrush')
+      png_optimizer.should_receive(:system).with('/usr/local/bin/pngcrush', '-o7', '/path/to/file.png')
       png_optimizer.optimize
     end
 
