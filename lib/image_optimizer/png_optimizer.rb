@@ -32,7 +32,7 @@ class ImageOptimizer
 
     def optimize_png
       success = false
-      TempFile.open(filename) do |in_file|
+      Tempfile.open(filename) do |in_file|
         in_file.binmode
         in_file.write IO.binread(path)
         in_file.close

@@ -19,7 +19,6 @@ end
 module CarrierWave
   module ImageOptimizer
     def optimize(options = {})
-      binding.pry
       ::ImageOptimizer.new(current_path, options).optimize
     end
   end
