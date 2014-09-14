@@ -36,19 +36,19 @@ class ImageOptimizer
         in_file.binmode
         in_file.write IO.binread(path)
         in_file.close
-        success = system(png_optimizer_bin, *command_options)
+        success = system(png_optimizer_bin, *command_options(in_file.path))
       end
       success
     end
 
-    def command_options
+    def command_options(temp_path)
       flags = ['-rem alla', '-rem text']
       flags << quiet if options[:quiet]
       flags << temp_path
       flags << path
     end
 
-    def temp_path
+    def filename
       path.split('/').last
     end
 
