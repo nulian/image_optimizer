@@ -20,7 +20,7 @@ class ImageOptimizer
       end
     end
 
-  private
+    private
 
     def jpeg_format?
       ['jpeg', 'jpg'].include? extension(path)
@@ -31,14 +31,23 @@ class ImageOptimizer
     end
 
     def optimize_jpeg
-      system(jpeg_optimizer_bin, *command_options)
+      success = false
+      Tempfile.open(filename) do |in_file|
+        in_file.binmode
+        in_file.write IO.binread(path)
+        in_file.close
+        success = system(jpeg_optimizer_bin + ' ' + command_options(in_file.path))
+      end
+      success
     end
 
-    def command_options
+    def command_options(temp_path)
       flags = ['-strip','-interlace Plane']
       flags << max_quantity if (0..100).include?(options[:quality])
       flags << quiet if options[:quiet]
+      flags << temp_path
       flags << path
+      flags.join(' ')
     end
 
     def max_quantity
