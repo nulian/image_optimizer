@@ -16,7 +16,7 @@ class ImageOptimizer
       if jpeg_optimizer_present?
         optimize_jpeg
       else
-        warn 'Attempting to optimize a jpeg without jpegoptim installed. Skipping...'
+        warn 'Attempting to optimize a jpeg without image magick installed. Skipping...'
       end
     end
 
