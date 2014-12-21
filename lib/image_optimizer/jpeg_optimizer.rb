@@ -35,7 +35,7 @@ class ImageOptimizer
     end
 
     def command_options
-      flags = ['-strip','-interlace Plane', '--strip-all', '--all-progressive']
+      flags = ['-strip','-interlace Plane']
       flags << max_quantity if (0..100).include?(options[:quality])
       flags << quiet if options[:quiet]
       flags << path
