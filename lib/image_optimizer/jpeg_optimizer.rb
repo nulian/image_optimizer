@@ -54,6 +54,10 @@ class ImageOptimizer
       "-quality #{options[:quality]}"
     end
 
+    def filename
+      path.split('/').last
+    end
+
     def quiet
       '-quiet'
     end
