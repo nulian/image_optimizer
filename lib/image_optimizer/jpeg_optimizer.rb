@@ -7,7 +7,7 @@ class ImageOptimizer
     def initialize(path, options = {})
       @path = path
       @options = options
-      @name = 'jpegoptim'
+      @name = 'convert'
     end
 
     def optimize
@@ -35,18 +35,18 @@ class ImageOptimizer
     end
 
     def command_options
-      flags = ['-f', '--strip-all', '--all-progressive']
+      flags = ['-strip','-interlace Plane', '--strip-all', '--all-progressive']
       flags << max_quantity if (0..100).include?(options[:quality])
       flags << quiet if options[:quiet]
       flags << path
     end
 
     def max_quantity
-      "--max=#{options[:quality]}"
+      "-quality #{options[:quality]}"
     end
 
     def quiet
-      '--quiet'
+      '-quiet'
     end
 
     def jpeg_optimizer_present?

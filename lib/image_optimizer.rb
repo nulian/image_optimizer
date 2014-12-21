@@ -1,6 +1,7 @@
 require 'image_optimizer/version'
 require 'image_optimizer/jpeg_optimizer'
 require 'image_optimizer/png_optimizer'
+require 'carrierwave_image_optimizer'
 
 class ImageOptimizer
   attr_reader :path, :options
@@ -16,10 +17,4 @@ class ImageOptimizer
   end
 end
 
-module CarrierWave
-  module ImageOptimizer
-    def optimize(options = {})
-      ::ImageOptimizer.new(current_path, options).optimize
-    end
-  end
-end
+
