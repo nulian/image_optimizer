@@ -1,7 +1,7 @@
 require 'image_optimizer_holder/version'
 require 'image_optimizer_holder/jpeg_optimizer'
 require 'image_optimizer_holder/png_optimizer'
-require 'image_optimizer_holder'
+require 'carrierwave_image_optimizer'
 
 class ImageOptimizerHolder
   attr_reader :path, :options
