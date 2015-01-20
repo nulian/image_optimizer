@@ -1,7 +1,7 @@
 module CarrierWave
-  module ImageOptimizer
+  module ImageOptimizerHolder
     def optimize(options = {})
-      ::ImageOptimizer.new(current_path, options).optimize
+      ::ImageOptimizerHolder.new(current_path, options).optimize
     end
   end
 end

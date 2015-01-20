@@ -1,9 +1,9 @@
-require 'image_optimizer/version'
-require 'image_optimizer/jpeg_optimizer'
-require 'image_optimizer/png_optimizer'
-require 'carrierwave_image_optimizer'
+require 'image_optimizer_holder/version'
+require 'image_optimizer_holder/jpeg_optimizer'
+require 'image_optimizer_holder/png_optimizer'
+require 'image_optimizer_holder'
 
-class ImageOptimizer
+class ImageOptimizerHolder
   attr_reader :path, :options
 
   def initialize(path, options = {})

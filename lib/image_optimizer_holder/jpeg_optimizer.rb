@@ -1,6 +1,6 @@
-require "image_optimizer/base"
+require "image_optimizer_holder/base"
 
-class ImageOptimizer
+class ImageOptimizerHolder
   class JPEGOptimizer < Base
     attr_reader :path, :options
 
