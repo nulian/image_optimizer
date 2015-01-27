@@ -43,7 +43,7 @@ class ImageOptimizerHolder
 
     def command_options(temp_path)
       flags = ['-rem alla', '-rem text']
-      flags << quiet if options[:quiet]
+      flags << quiet unless options[:verbose]
       flags << temp_path
       flags << path
     end

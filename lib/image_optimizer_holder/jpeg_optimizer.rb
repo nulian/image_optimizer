@@ -44,10 +44,10 @@ class ImageOptimizerHolder
     def command_options(temp_path)
       flags = ['-strip','-interlace Plane']
       flags << max_quantity if (0..100).include?(options[:quality])
-      if options[:quiet]
-        flags << quiet
-      else
+      if options[:verbose]
         flags << '-verbose'
+      else
+        flags << quiet
       end
       flags << temp_path
       flags << path
